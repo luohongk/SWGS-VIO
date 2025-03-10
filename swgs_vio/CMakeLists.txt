@@ -6,6 +6,8 @@ set(CMAKE_CXX_FLAGS "-std=c++14")
 set(CMAKE_CXX_FLAGS_RELEASE "-O3 -Wall -g")
 set(CMAKE_CXX_STANDARD 14)
 
+set(CMAKE_BUILD_TYPE "Debug")
+
 find_package(catkin REQUIRED COMPONENTS
     roscpp
     std_msgs
@@ -43,4 +45,5 @@ link_libraries(
 catkin_package()
 
 add_executable(swgs_vio_node main.cpp)
+target_compile_definitions(swgs_vio_node PRIVATE PROJECT_SOURCE_DIR="${PROJECT_SOURCE_DIR_ABS}")
 target_link_libraries(swgs_vio_node) 
